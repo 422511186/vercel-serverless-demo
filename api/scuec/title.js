@@ -23,6 +23,6 @@ export default function handler(request, response) {
 
         response.status(200).json(R.success(resultBody))
     } catch (e) {
-        response.status(200).json(R.error(e))
+        response.status(200).json(R.error(e.message))
     }
 }
