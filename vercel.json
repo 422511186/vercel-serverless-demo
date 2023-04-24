@@ -13,7 +13,7 @@
     {
       "src": "/(.*)",
       "status": 404,
-      "dest": "/welcome.html"
+      "dest": "/api/notfound"
     }
   ]
 }

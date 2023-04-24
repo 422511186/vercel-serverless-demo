@@ -1,9 +1,10 @@
 import R from "../../commons/R";
 
-export default function handler(request, response) {
+module.exports = (req, res) => {
 
-    let body = request.body;
+    let body = req.body;
     let resultBody = {}
+    
     try {
         let layer = body["layer"];
         if (layer === 1) {
@@ -20,9 +21,8 @@ export default function handler(request, response) {
 
         resultBody["data"] = `{${data}}`
         resultBody["post_data"] = '\n'
-
-        response.status(200).json(R.success(resultBody))
+        res.status(200).json(R.success(resultBody))
     } catch (e) {
-        response.status(200).json(R.error(e.message))
+        res.status(200).json(R.error(e.message))
     }
 }

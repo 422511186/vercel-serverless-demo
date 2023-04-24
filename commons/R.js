@@ -1,5 +1,6 @@
 const CODE = {
     SUCCESS: 200,
+    NOT_FOUND: 404,
     BUSINESS_ERROR: 500,
 }
 
@@ -20,6 +21,6 @@ module.exports = {
             data: data,
             msg: msg
         }
-    }
-
+    },
+    CODE
 }
