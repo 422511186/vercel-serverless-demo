@@ -1,4 +1,5 @@
 import R from "../../commons/R";
+import {LaTex, ResultKey} from "../../commons/Constant";
 
 module.exports = (req, res) => {
 
@@ -12,7 +13,7 @@ module.exports = (req, res) => {
             res.status(200).json(R.error("请求参数错误"))
             return
         }
-        resultBody['data'] = `\\cDepartment[${children[1]['text']}]\n`
+        resultBody[ResultKey.data] = `\\cDepartment[${children[1]['text']}]${LaTex.newline}`
 
         res.status(200).json(R.success(resultBody))
     } catch (e) {

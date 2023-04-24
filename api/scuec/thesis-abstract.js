@@ -1,4 +1,5 @@
 import R from "../../commons/R";
+import {LaTex, ResultKey} from "../../commons/Constant";
 
 module.exports = (req, res) => {
 
@@ -15,13 +16,13 @@ module.exports = (req, res) => {
 
         let language = body['language'];
         if (language === 'cn') {
-            resultBody["prefix_data"] = '\\begin{cnAbstract}\n'
-            resultBody["post_data"] = '\\begin{cnAbstract}\n'
+            resultBody[ResultKey.prefixData] = `\\begin{cnAbstract}${LaTex.newline}`
+            resultBody[ResultKey.postData] = `\\begin{cnAbstract}${LaTex.newline}`
         } else {
-            resultBody["prefix_data"] = '\\begin{abstract}\n'
-            resultBody["post_data"] = '\\begin{abstract}\n'
+            resultBody[ResultKey.prefixData] = `\\begin{abstract}${LaTex.newline}`
+            resultBody[ResultKey.postData] = `\\begin{abstract}${LaTex.newline}`
         }
-        resultBody['data'] = `${children[1]['text']}\n`
+        resultBody[ResultKey.data] = `${children[1]['text']}${LaTex.newline}`
 
         res.status(200).json(R.success(resultBody))
     } catch (e) {
